@@ -11,3 +11,5 @@ Task 2: Unsteady flow and a non reactive contaminant (also known as a tracer). F
 
 How To Use: 
 Follow input prompts for Task 1. For Task 2, manually change the values of the input variables to meet your needs.
+
+Note to Professor Machairas: I added a second task to add to the practicality of the program. 
