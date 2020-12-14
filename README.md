@@ -17,15 +17,37 @@ Note to Professor Machairas: I added a second task to add to the practicality of
 **Example of Results**
 
 TASK ONE
+
 Inputs:
--Row number:
--Flowrate at inlet:
--Concentration of contaminant at inlet: 
+
+-Row number: 3 (this is Copper)
+
+-Flowrate at inlet: 100
+
+-Concentration of contaminant at inlet: 10
+
+
 Outputs:
--Total flowrate at outlet:
--Flowrate of pure water added to system:
+
+-Total flowrate at outlet (including the added flowrate): 1000
+
+-Flowrate of pure water added to system: 900
 
 TASK TWO
+
 Inputs: 
+
+-Volume of reservoir: 20,000
+
+-Flowrate of water being pumped in: 450
+
+-Percentage of concentration that remains (in decimal form): 0.05
+
 Outputs:
+
+-Hydraulic detention time: 44
+
+-Required flushing time: 133
+
+-Volume of flushing water: 20,000
 
