@@ -23,7 +23,7 @@ df
 
 Cout = input("Enter your NSDWR contaminant row number below: " )
 Qin = input("Enter the flowrate at the inlet of contaminated body of water below in liters per minute: " )
-Cin = input("Enter the concentration of contaminant in mg/L: ")
+Cin = input("Enter the concentration of contaminant at inlet in mg/L: ")
 # Converting strings into integers
 newQin=int (Qin)
 newCin=int (Cin)
