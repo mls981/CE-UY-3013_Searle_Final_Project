@@ -10,3 +10,4 @@ Assumptions: Task 1: Flow is steady in each scenario and the density of water re
 Task 2: Unsteady flow and a non reactive contaminant (also known as a tracer). Flowrate at inlet and outlet are the same. Completely Mixed Reactor (CMR).
 
 How To Use: 
+Follow input prompts for Task 1. For Task 2, manually change the values of the input variables to meet your needs.
