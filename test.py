@@ -1,14 +1,6 @@
-#Task 1
+#Case 1
 
-from source import df
-print (df)
-print (Qout)
-print (Qadded)
+from source import System
 
-#Task 2
-
-from source import df
-print (df)
-print (round(Td))
-print(round(t))
-print(round(V))
+trial1 = System(ReactorType='Batch', order=1, volume=100, flowrate=10, Cin=50, kVal=0.2, tBatch=40)
+print(trial1.Cout_find())
