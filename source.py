@@ -70,3 +70,39 @@ class System:
     def pRemoval_find(self):
         return round(100 * (1 - (self.Cout_find() / self.Cin)))
 
+    
+class System2:
+  """
+  If case 2, use this class.
+  """
+  def __init2__(self, ReactorType, order, removalGoal=None, CoutGoal=None, Cin, kVal):
+    self.reactor = ReactorType
+    self.order = order
+    self.removalGoal = removalGoal
+    self.CoutGoal = CoutGoal
+    self.Cin = Cin
+    self.kVal = kVal
+  
+  def conv_rg_to_CoutGoal(removalGoal, Cin):
+    if removalGoal != None:
+     return ((100-removalGoal)/100)*Cin
+  
+  CoutGoal = conv_rg_to_CoutGoal(removalGoal, Cin)
+  
+  def tNeeded_find(Cin, kVal, ReactorType, order, CoutGoal): 
+    if self.ReactorType == 'PFR' or 'Batch': # PFR/Batch nested if statements
+      if self.order == 0:
+       tNeeded = (1/self.kVal)*(self.Cin-CoutGoal)
+      if self.order == 1:
+       tNeeded = (1/self.kVal)*(math.log(self.Cin/CoutGoal))
+      if self.order == 2:
+       tNeeded = (1/(self.kVal*self.Cin))*((self.Cin/CoutGoal)-1)
+    if self.ReactorType == 'CMFR': # CMFR nested if statements
+      if self.order == 0:
+        tNeeded = (CoutGoal/self.kVal)*((self.Cin/CoutGoal)-1)
+      if self.order == 1:
+        tNeeded = (1/self.kVal)*((self.Cin/CoutGoal)-1)
+      if self.order == 2:
+        tNeeded = (1/(self.kVal*CoutGoal))*((self.Cin/CoutGoal)-1)
+  return tNeeded
+
