@@ -21,6 +21,7 @@ class System:
         self.Cin = Cin
         self.kVal = kVal
         self.tBatch = tBatch
+        self.Couot = 0 
 
 
     def Theta_find(self):
@@ -45,20 +46,20 @@ class System:
         if self.reactor == 'CMFR':  # CMFR nested if statements
             print("b")
             if self.order == 0:
-                Cout = self.Cin - (self.kVal * Theta)
+                self.Cout = self.Cin - (self.kVal * Theta)
             if self.order == 1:
-                Cout = self.Cin(1 + self.kVal * Theta)
+                self.Cout = self.Cin(1 + self.kVal * Theta)
             if self.order == 2:
-                Cout = (-1 + math.sqrt(1 + 4 * self.kVal * Theta * self.Cin)) / (2 * self.kVal * Theta)
+                self.Cout = (-1 + math.sqrt(1 + 4 * self.kVal * Theta * self.Cin)) / (2 * self.kVal * Theta)
         if self.reactor == 'Batch':  # Batch reactor nested if statements
 
             if self.order == 0:
-                Cout = self.Cin - (self.kVal * Theta)
+                self.Cout = self.Cin - (self.kVal * Theta)
 
             elif self.order == 1:
-                Cout = self.Cin * math.exp(-self.kVal * Theta)
+                self.Cout = self.Cin * math.exp(-self.kVal * Theta)
             if self.order == 2:
-                Cout = self.Cin / (1 + self.kVal * Theta * self.Cin)
+                self.Cout = self.Cin / (1 + self.kVal * Theta * self.Cin)
 
 
         return Cout
