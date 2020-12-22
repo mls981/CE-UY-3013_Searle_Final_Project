@@ -72,7 +72,7 @@ class System2:
     """
     If case 2, use this class.
     """
-    def __init__(self, ReactorType, order, Cin, kVal, removalGoal=None, CoutGoal=None):
+    def __init__(self, ReactorType, order, Cin, kVal, removalGoal, CoutGoal=1):
         self.reactor = ReactorType
         self.order = order
         self.removalGoal = removalGoal
@@ -84,21 +84,20 @@ class System2:
         if self.removalGoal != None:
             return ((100-self.removalGoal)/100)*self.Cin
     
-    def tNeeded_find(self, Cin, kVal, ReactorType, order, CoutGoal): 
-        if self.ReactorType == 'PFR' or 'Batch': # PFR/Batch nested if statements
+    def tNeeded_find(self): 
+        if self.reactor == 'PFR' or 'Batch': # PFR/Batch nested if statements
             if self.order == 0:
-                tNeeded = (1/self.kVal)*(self.Cin-CoutGoal)
+                tNeeded = (1/self.kVal)*(self.Cin-self.CoutGoal)
             if self.order == 1:
-                tNeeded = (1/self.kVal)*(math.log(self.Cin/CoutGoal))
+                tNeeded = (1/self.kVal)*(math.log(self.Cin/self.CoutGoal))
             if self.order == 2:
-                tNeeded = (1/(self.kVal*self.Cin))*((self.Cin/CoutGoal)-1)
-        elif self.ReactorType == 'CMFR': # CMFR nested if statements
+                tNeeded = (1/(self.kVal*self.Cin))*((self.Cin/self.CoutGoal)-1)
+        elif self.reactor == 'CMFR': # CMFR nested if statements
             if self.order == 0:
-                tNeeded = (CoutGoal/self.kVal)*((self.Cin/CoutGoal)-1)
+                tNeeded = (CoutGoal/self.kVal)*((self.Cin/self.CoutGoal)-1)
             if self.order == 1:
-                tNeeded = (1/self.kVal)*((self.Cin/CoutGoal)-1)
+                tNeeded = (1/self.kVal)*((self.Cin/self.CoutGoal)-1)
             if self.order == 2:
-                tNeeded = (1/(self.kVal*CoutGoal))*((self.Cin/CoutGoal)-1)
+                tNeeded = (1/(self.kVal*CoutGoal))*((self.Cin/self.CoutGoal)-1)
                 
         return tNeeded
-
