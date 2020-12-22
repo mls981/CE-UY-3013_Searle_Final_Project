@@ -25,7 +25,6 @@ class System:
         self.Cin = Cin
         self.kVal = kVal
         self.tBatch = tBatch
-        self.Couot = 0 
 
 
     def Theta_find(self):
@@ -66,8 +65,7 @@ class System:
                 self.Cout = self.Cin / (1 + self.kVal * Theta * self.Cin)
 
 
-        return Cout
-    
+        return self.Cout
     def pRemoval_find(self):
         return round(100 * (1 - (self.Cout_find() / self.Cin)))
 
