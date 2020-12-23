@@ -1,6 +1,7 @@
 #Case 1
 
 from source import System
+from source import System2
 
 # 'trial1' and 'trial2,' compare two different reactor models using the System class.
 trial1 = System(ReactorType='Batch', order=1, volume=100, flowrate=10, Cin=50, kVal=0.2, tBatch=40)
