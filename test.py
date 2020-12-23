@@ -10,6 +10,19 @@ print('Percent removal for first trial: ', trial1.pRemoval_find())
 trial2 = System(ReactorType='PFR', order=1, volume=100, flowrate=10, Cin=50, kVal=0.2)
 print('Percent removal for second trial: ',trial2.pRemoval_find())
 
+    def compSystem(self):
+     # initialize list with results from trial runs using the class 'System'
+     results = []
+     # add results from trials
+     results.append(trial1.pRemoval_find())
+     results.append(trial2.pRemoval_find())
+     if results[0] > results[1]:
+        print('Trial 1 is a more efficient reactor model.')
+     if results[0] < results[1]:
+        print('Trial 2 is a more efficient reactor model.')
+     if results[0] == results[1]:
+        print('Both reactor models have the same percent removal.')
+
 comparison = compSystem(results)
 
 # S2trial uses the System2 class to determine the time needed to achieve given removal goal
