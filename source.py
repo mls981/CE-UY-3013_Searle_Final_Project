@@ -2,18 +2,35 @@
 
 import math 
 
+# NOTES FOR USER
+
+# There are two classes for two seperate cases. 'System' and 'System2'
+# are for cases one and two respectively. In case one, either time is given
+# or theta can be found depending on reactor type; used to find best reactor
+# type based on highest percent removal. Case two is the inverse of case one.
+# In case two, either percent removal is given or just Cout
+# (concentration of contaminant at outlet); used to find theta (hydraulic
+# residence time) or t(time in batch reactor) to meet removal/concentration
+# goal. 
+
+# Valid reactor types are plug-flow reactors (enter PFR), completely-
+# mixed flow reactors (enter CMFR), and batch reactors (enter Batch).  
+
+# Order can be zero, first, or second. (Enter 0, 1, or 2).
+
+# For 'System,' volume is in cubic meters and flowrate can be in cubic meters
+# per hour or per minute. 
+# For 'System2,' the time value presented will be in minutes. Also, if you are
+# evaluating a batch reactor, still enter 0 for flowrate. 
+
+# Always keep order, Cin (concentration at inlet), and kVal (factor to determine
+# decay rate) the same when comparing reactor models since these are dependent 
+# on the species/contaminat. 
+
 class System:
     """
-    Two cases:
     Case 1: either time is given or theta can be found depending on reactor
     type; used to find best reactor type based on highest percent removal
-    Case 2: the inverse of Case 1: either percent removal is given or just Cout
-    (concentration of contaminant at outlet); used to find theta (hydraulic
-    residence time) or t(time in batch reactor) to meet removal/concentration
-    goal
-
-    Valid reactor types are plug-flow reactors (enter PFR), completely-
-    mixed flow reactors (enter CMFR), and batch reactors (enter Batch).
     """
 
     def __init__(self, ReactorType, order, volume, flowrate, Cin, kVal,
@@ -72,7 +89,10 @@ class System:
     
 class System2:
     """
-    If case 2, use this class.
+    Case 2: the inverse of Case 1: either percent removal is given or just Cout
+    (concentration of contaminant at outlet); used to find theta (hydraulic
+    residence time) or t(time in batch reactor) to meet removal/concentration
+    goal.
     """
     def __init__(self, ReactorType, order, Cin, kVal, removalGoal, CoutGoal=1):
         self.reactor = ReactorType
