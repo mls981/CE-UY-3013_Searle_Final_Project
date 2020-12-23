@@ -116,10 +116,23 @@ class System2:
                 tNeeded = (1/(self.kVal*self.Cin))*((self.Cin/self.CoutGoal)-1)
         elif self.reactor == 'CMFR': # CMFR nested if statements
             if self.order == 0:
-                tNeeded = (CoutGoal/self.kVal)*((self.Cin/self.CoutGoal)-1)
+                tNeeded = (self.CoutGoal/self.kVal)*((self.Cin/self.CoutGoal)-1)
             if self.order == 1:
                 tNeeded = (1/self.kVal)*((self.Cin/self.CoutGoal)-1)
             if self.order == 2:
-                tNeeded = (1/(self.kVal*CoutGoal))*((self.Cin/self.CoutGoal)-1)
+                tNeeded = (1/(self.kVal*self.CoutGoal))*((self.Cin/self.CoutGoal)-1)
                 
         return tNeeded
+    
+    def compSystem(self):
+     # initialize list with results from trial runs using the class 'System'
+     results = []
+        # add results from trials
+        results.append(trial1.pRemoval_find())
+        results.append(trial2.pRemoval_find())
+        if results[0] > results[1]:
+            print('Trial 1 is a more efficient reactor model.')
+        if results[0] < results[1]:
+            print('Trial 2 is a more efficient reactor model.')
+        if results[0] == results[1]:
+            print('Both reactor models have the same percent removal.')
