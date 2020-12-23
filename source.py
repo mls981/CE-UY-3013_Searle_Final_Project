@@ -123,16 +123,3 @@ class System2:
                 tNeeded = (1/(self.kVal*self.CoutGoal))*((self.Cin/self.CoutGoal)-1)
                 
         return tNeeded
-    
-    def compSystem(self):
-     # initialize list with results from trial runs using the class 'System'
-     results = []
-        # add results from trials
-        results.append(trial1.pRemoval_find())
-        results.append(trial2.pRemoval_find())
-        if results[0] > results[1]:
-            print('Trial 1 is a more efficient reactor model.')
-        if results[0] < results[1]:
-            print('Trial 2 is a more efficient reactor model.')
-        if results[0] == results[1]:
-            print('Both reactor models have the same percent removal.')
